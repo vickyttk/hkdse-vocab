@@ -1,121 +1,105 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HKDSE Vocab Mobile</title>
+    <style>
+        body { font-family: -apple-system, sans-serif; background: #f0f2f5; padding: 20px; text-align: center; }
+        .card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        button { background: #007AFF; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 16px; margin: 5px; cursor: pointer; }
+        input { padding: 12px; border: 1px solid #ccc; border-radius: 8px; width: 80%; font-size: 16px; }
+        .progress-container { background: #ddd; border-radius: 10px; height: 10px; margin: 20px 0; }
+        .progress-bar { background: #34C759; height: 10px; width: 0%; border-radius: 10px; transition: 0.3s; }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;HKDSE Vocab Mobile&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: -apple-system, sans-serif; background: #f0f2f5; padding: 20px; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.card { background: white; border-radius: 15px; padding: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-bottom: 20px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>button { background: #007AFF; color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 16px; margin: 5px; cursor: pointer; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>input { padding: 12px; border: 1px solid #ccc; border-radius: 8px; width: 80%; font-size: 16px; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.progress-container { background: #ddd; border-radius: 10px; height: 10px; margin: 20px 0; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.progress-bar { background: #34C759; height: 10px; width: 0%; border-radius: 10px; transition: 0.3s; }</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;HKDSE Master&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="setup"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="studentName" placeholder="Enter Your Name"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onclick="startApp()"&gt;Start Learning&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="app" style="display:none;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="progress-container"&gt;&lt;div id="progress" class="progress-bar"&gt;&lt;/div&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p id="stats"&gt;Words Mastered: 0/10&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 id="wordDisplay"&gt;Loading...&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button onclick="speak()"&gt;🔊 Listen&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="defDisplay"&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input type="text" id="answerInput" placeholder="Type spelling here..." style="display:none;"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="mainBtn" onclick="nextQuestion()"&gt;Next Word&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button id="submitBtn" onclick="submitProgress()" style="display:none; background:#34C759;"&gt;Submit Results to Teacher&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const vocab = [</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{w: "alleviate", d: "to make suffering less severe"},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{w: "detrimental", d: "tending to cause harm"},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{w: "ubiquitous", d: "found everywhere"},</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{w: "pragmatic", d: "sensible and realistic"}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>let score = 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let currentWord = {};</p>
-<p class="p1"><span class="Apple-converted-space">        </span>let goal = 10;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function startApp() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if(!document.getElementById('studentName').value) return alert("Enter name!");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('setup').style.display = 'none';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('app').style.display = 'block';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>nextQuestion();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function speak() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let msg = new SpeechSynthesisUtterance(currentWord.w);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>msg.lang = 'en-GB';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>window.speechSynthesis.speak(msg);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function nextQuestion() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>currentWord = vocab[Math.floor(Math.random() * vocab.length)];</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('wordDisplay').innerText = "???";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('defDisplay').innerText = currentWord.d;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('answerInput').style.display = 'block';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('answerInput').value = "";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('mainBtn').onclick = checkAnswer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('mainBtn').innerText = "Check Spelling";</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function checkAnswer() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let userAns = document.getElementById('answerInput').value.trim().toLowerCase();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if(userAns === currentWord.w.toLowerCase()) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>score++;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert("Correct!");</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>alert("Incorrect. It was: " + currentWord.w);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>updateUI();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function updateUI() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>let percent = (score / goal) * 100;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('progress').style.width = percent + "%";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('stats').innerText = `Words Mastered: ${score}/${goal}`;</p>
-<p class="p2"><span class="Apple-converted-space">            </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>if(score &gt;= goal) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById('submitBtn').style.display = 'inline-block';</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>nextQuestion();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>function submitProgress() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const name = document.getElementById('studentName').value;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// For a real teacher dashboard, we send this to a Google Form URL</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const formURL = "YOUR_GOOGLE_FORM_ENDPOINT_HERE";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>alert(`Results for ${name} submitted! Score: ${score}`);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>// You can use fetch(formURL) here to actually save the data</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <h1>HKDSE Master</h1>
+    <div id="setup">
+        <input type="text" id="studentName" placeholder="Enter Your Name">
+        <button onclick="startApp()">Start Learning</button>
+    </div>
+
+    <div id="app" style="display:none;">
+        <div class="progress-container"><div id="progress" class="progress-bar"></div></div>
+        <p id="stats">Words Mastered: 0/10</p>
+
+        <div class="card">
+            <h2 id="wordDisplay">Loading...</h2>
+            <button onclick="speak()">🔊 Listen</button>
+            <p id="defDisplay"></p>
+            <input type="text" id="answerInput" placeholder="Type spelling here..." style="display:none;">
+        </div>
+
+        <button id="mainBtn" onclick="nextQuestion()">Next Word</button>
+        <button id="submitBtn" onclick="submitProgress()" style="display:none; background:#34C759;">Submit Results to Teacher</button>
+    </div>
+
+    <script>
+        const vocab = [
+            {w: "alleviate", d: "to make suffering less severe"},
+            {w: "detrimental", d: "tending to cause harm"},
+            {w: "ubiquitous", d: "found everywhere"},
+            {w: "pragmatic", d: "sensible and realistic"}
+        ];
+
+        let score = 0;
+        let currentWord = {};
+        let goal = 10;
+
+        function startApp() {
+            if(!document.getElementById('studentName').value) return alert("Enter name!");
+            document.getElementById('setup').style.display = 'none';
+            document.getElementById('app').style.display = 'block';
+            nextQuestion();
+        }
+
+        function speak() {
+            let msg = new SpeechSynthesisUtterance(currentWord.w);
+            msg.lang = 'en-GB';
+            window.speechSynthesis.speak(msg);
+        }
+
+        function nextQuestion() {
+            currentWord = vocab[Math.floor(Math.random() * vocab.length)];
+            document.getElementById('wordDisplay').innerText = "???";
+            document.getElementById('defDisplay').innerText = currentWord.d;
+            document.getElementById('answerInput').style.display = 'block';
+            document.getElementById('answerInput').value = "";
+            document.getElementById('mainBtn').onclick = checkAnswer;
+            document.getElementById('mainBtn').innerText = "Check Spelling";
+        }
+
+        function checkAnswer() {
+            let userAns = document.getElementById('answerInput').value.trim().toLowerCase();
+            if(userAns === currentWord.w.toLowerCase()) {
+                score++;
+                alert("Correct!");
+            } else {
+                alert("Incorrect. It was: " + currentWord.w);
+            }
+            updateUI();
+        }
+
+        function updateUI() {
+            let percent = (score / goal) * 100;
+            document.getElementById('progress').style.width = percent + "%";
+            document.getElementById('stats').innerText = `Words Mastered: ${score}/${goal}`;
+            
+            if(score >= goal) {
+                document.getElementById('submitBtn').style.display = 'inline-block';
+            }
+            nextQuestion();
+        }
+
+        function submitProgress() {
+            const name = document.getElementById('studentName').value;
+            // For a real teacher dashboard, we send this to a Google Form URL
+            const formURL = "YOUR_GOOGLE_FORM_ENDPOINT_HERE";
+            alert(`Results for ${name} submitted! Score: ${score}`);
+            // You can use fetch(formURL) here to actually save the data
+        }
+    </script>
 </body>
 </html>
