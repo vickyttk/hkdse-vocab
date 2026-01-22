@@ -41,7 +41,8 @@
             {w: "alleviate", d: "to make suffering less severe"},
             {w: "detrimental", d: "tending to cause harm"},
             {w: "ubiquitous", d: "found everywhere"},
-            {w: "pragmatic", d: "sensible and realistic"}
+            {w: "pragmatic", d: "sensible and realistic"},
+	    {w: "sensible", d: "make sense"}
         ];
 
         let score = 0;
@@ -93,12 +94,13 @@
             nextQuestion();
         }
 
-        function submitProgress() {
-            const name = document.getElementById('studentName').value;
-            // For a real teacher dashboard, we send this to a Google Form URL
-            const formURL = "YOUR_GOOGLE_FORM_ENDPOINT_HERE";
-            alert(`Results for ${name} submitted! Score: ${score}`);
-            // You can use fetch(formURL) here to actually save the data
+     	function submitProgress() {
+    	   const name = document.getElementById('studentName').value;
+    	   const body = `Hi Teacher, I am ${name}. I finished my HKDSE Vocab goal! My score is:${score}/10.`;
+    
+    // To send via Email:
+    window.open(`mailto:vickyttk@gmail.com?subject=HKDSE Vocab Progress&body=${encodeURIComponent(body)}`);
+}
         }
     </script>
 </body>
